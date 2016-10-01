@@ -7,3 +7,4 @@ function shout_backwards(data){
 }
 
 console.log(shout_backwards("Hello World"));
+console.log("Hello World".toUpperCase().split("").reverse().join("") + "!!!");
