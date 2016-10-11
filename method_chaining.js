@@ -5,7 +5,7 @@ function shout_backwards(data){
   // var backwards = reversing.join("");
   // return backwards + "!!!";
 
-  return data.toUpperCase().split("").reverse().join("") + " !!!"
+  return data
 }
 
-console.log(shout_backwards("Hello World"));
+console.log(shout_backwards("Hello World").toUpperCase().split("").reverse().join("") + " !!!");
