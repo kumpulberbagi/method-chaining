@@ -1,20 +1,9 @@
  // The data store:
- var usersData = [{
-     firstName: "SpongeBob",
-     lastName: "SquarePants",
-     email: "spongebob@crustycrab.com",
-     id: 102
- }, {
-     firstName: "Patrick",
-     lastName: "Star",
-     email: "patric.star@gmail.com",
-     id: 103
- }, {
-     firstName: "Squidward",
-     lastName: "Tentacles",
-     email: "awesomesquidward@yahoo.com",
-     id: 104
- }]
+ var usersData = [
+   {firstName:"SpongeBob", lastName:"SquarePants", email:"spongebob@crustycrab.com", id:102},
+   {firstName:"Patrick", lastName:"Star", email:"patric.star@gmail.com", id:103},
+   {firstName:"Squidward", lastName:"Tentacles", email:"awesomesquidward@yahoo.com", id:104}
+ ]
 
  function titleCaseName(str) {
 
@@ -22,10 +11,34 @@
 
  // Our object with the chainable methods using class in ES6
  class UserController {
-  
-   titleCaseName(str) {
-    
-    
+
+   findUser(email){
+     for (let i=0; i<usersData.length; i++){
+       if(usersData[i]["email"]==email){
+         this.idx = i;
+         break
+       } else {
+
+       }
+     }
+     return this
+   }
+
+   formatName(){
+     this.name = "Member name: "+ usersData[this.idx]["firstName"] +" "+usersData[this.idx]["lastName"]
+     return this
+   }
+
+   formatData(){
+     this.idno= "ID: "+ usersData[this.idx]["id"]
+     this.email= "Email: "+ usersData[this.idx]["email"]
+     return this
+   }
+
+   displayUser(){
+     console.log(this.name)
+     console.log(this.idno)
+     console.log(this.email)
    }
  }
 
