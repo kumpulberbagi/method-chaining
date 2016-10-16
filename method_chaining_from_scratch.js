@@ -1,3 +1,4 @@
+"use strict"
  // The data store:
  var usersData = [{
      firstName: "SpongeBob",
@@ -22,16 +23,54 @@
 
  // Our object with the chainable methods using class in ES6
  class UserController {
-  
-   titleCaseName(str) {
-    
-    
+   constructor(){
+     this._firstName = ''
+     this._lastName = ''
+     this._email = ''
+     this._id = 0
+     this._fullName='dsf'
+     this._formatData =[]
    }
+
+   findUser(x){
+     for (var i = 0; i < usersData.length; i++) {
+       if(usersData[i].email === x){
+          this._firstName = usersData[i].firstName
+          this._lastName = usersData[i].lastName
+          this._email = usersData[i].email
+          this._id = usersData[i].id
+       }
+     }
+     return this
+   }
+   formatName(){
+     this._fullName = `${this._firstName} ${this._lastName}`
+     return this
+   }
+
+   formatData(){
+     this._formatData.push(this._fullName)
+     this._formatData.push(this._id)
+     this._formatData.push(this._email)
+     return this
+   }
+   displayUser(){
+     console.log(`Member Name : ${this._formatData[0]} \nID : ${this._formatData[1]} \nEmail : ${this._formatData[2]}`);
+   }
+
+   titleCaseName(str) {
+   }
+
+
+
  }
 
  // Driver code
  let userController = new UserController;
  userController.findUser("awesomesquidward@yahoo.com").formatName().formatData().displayUser();
+//userController.findUser("awesomesquidward@yahoo.com").formatName();
+
+
 
  // result
  // Member name: Squidward Tentacles
